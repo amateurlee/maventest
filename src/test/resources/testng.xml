@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="test"> <!--parallel="true"-->
+
+
+    <test name="test2" preserver-order="true">
+        <classes>
+            <class name="com.xihui.xihuitest.TestNgTest2"/>
+        </classes>
+
+        <groups>
+            <define name="functest">
+                <include name="group1"/>
+                <include name="linux"/>
+            </define>
+
+            <define name="all">
+                <include name="functest"/>
+            </define>
+
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+    </test>
+
+
+    <test name="test1" preserver-order="true">
+
+        <classes>
+            <class name="com.xihui.xihuitest.TestNgTest1">
+                <!--<methods>-->
+                    <!--<include name=".*enabledTestMethod.*"/>-->
+                    <!--<exclude name=".*brokenTestMethod.*"/>-->
+                <!--</methods>-->
+            </class>
+        </classes>
+
+        <listeners>
+            <!--report html-->
+            <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+            <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+        </listeners>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
